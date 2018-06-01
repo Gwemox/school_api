@@ -3,4 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def generate_token
+    token = SecureRandom.hex
+    self.update_attribute(:auth_token, token)
+    return token
+  end
+
 end
