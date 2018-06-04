@@ -14,7 +14,7 @@ class Api::ApiController < ApplicationController
   private
 
   def authentication_success?
-    token = request.headers['Authorization']
+    token = request.headers['HTTP_AUTHORIZATION']
     if token && !token.blank?
       user = User.find_by(auth_token: token)
       if user

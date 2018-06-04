@@ -21,7 +21,7 @@ feature "Schools" do
     end
 
     it "return list of all schools" do
-      get api_v1_schools_path, nil, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
+      get api_v1_schools_path, {}, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
 
       assert_equal "Lycée René Cassin", json_response['schools'][0]['name']
       assert_equal "Ynov Ingésup Informatique", json_response['schools'][1]['name']
@@ -57,22 +57,28 @@ feature "Schools" do
   describe "#create" do
     it "return 201 when school is successfull created" do
       assert_difference "School.all.count" do
-        post api_v1_schools_path, {school: {name: "Collège George Sand"}}, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
+        post api_v1_schools_path, {school: {name: "Collège George Sand", email: "jean@dupont.com"}}, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
 
         assert_equal 201, last_response.status
         assert_equal 'Collège George Sand', json_response['school']['name']
       end
     end
 
-    it "return 400 when school is unsuccessfulll created" do
-      post api_v1_schools_path, {school: {opening_hours: "5h-14h"}}, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
+    it "return 400 when school is unsuccessfull (no name) created" do
+      post api_v1_schools_path, {school: {opening_hours: "5h-14h", email: "jean@dupont.com"}}, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
+
+      assert_equal 400, last_response.status
+    end
+
+    it "return 400 when school is unsuccessfull (no email) created" do
+      post api_v1_schools_path, {school: {name: "Lycée de test"}}, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
 
       assert_equal 400, last_response.status
     end
   end
 
   describe "#update" do
-    it "return 200 when school is successfulllt updated" do
+    it "return 200 when school is successfull updated" do
       patch api_v1_school_path(2), {school: {opening_hours: "7h-19h"}}, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
 
       assert_equal 200, last_response.status
