@@ -1,4 +1,69 @@
 {
+  "schools#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/schools",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "school[name]=Coll%C3%A8ge+George+Sand",
+      "response_data": {
+        "school": {
+          "id": 3,
+          "name": "Collège George Sand",
+          "address": null,
+          "zip_code": null,
+          "city": null,
+          "opening_hours": null,
+          "phone_number": null,
+          "email": null,
+          "latitude": null,
+          "longitude": null,
+          "student_number": null,
+          "status": null,
+          "created_at": "2018-06-04T11:51:55.059Z",
+          "updated_at": "2018-06-04T11:51:55.059Z"
+        }
+      },
+      "code": 201,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "schools#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/api/v1/schools/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "elementDeleted": {
+          "id": 1,
+          "name": "Ynov Ingésup Informatique",
+          "address": "27 rue raoul servant",
+          "zip_code": "69007",
+          "city": "Lyon",
+          "opening_hours": "8h-19h",
+          "phone_number": "0800600633",
+          "email": "jean.kevin@ynov.com",
+          "latitude": 45.745686,
+          "longitude": 4.837593,
+          "student_number": 300,
+          "status": "private",
+          "created_at": "2018-06-04T11:51:54.970Z",
+          "updated_at": "2018-06-04T11:51:54.970Z"
+        },
+        "success": true
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
   "schools#index": [
     {
       "verb": "GET",
@@ -9,13 +74,43 @@
       "query": null,
       "request_data": null,
       "response_data": {
-        "errors": [
+        "schools": [
           {
-            "detail": "Access denied"
+            "id": 2,
+            "name": "Lycée René Cassin",
+            "address": "49 Boulevard des 9 Clés",
+            "zip_code": "71018",
+            "city": "Mâcon",
+            "opening_hours": "8h-19h",
+            "phone_number": "0385395350",
+            "email": "jean.kevin@cassin.fr",
+            "latitude": 46.314784,
+            "longitude": 4.82112,
+            "student_number": 1000,
+            "status": "public",
+            "created_at": "2018-06-04T11:51:54.970Z",
+            "updated_at": "2018-06-04T11:51:54.970Z"
+          },
+          {
+            "id": 1,
+            "name": "Ynov Ingésup Informatique",
+            "address": "27 rue raoul servant",
+            "zip_code": "69007",
+            "city": "Lyon",
+            "opening_hours": "8h-19h",
+            "phone_number": "0800600633",
+            "email": "jean.kevin@ynov.com",
+            "latitude": 45.745686,
+            "longitude": 4.837593,
+            "student_number": 300,
+            "status": "private",
+            "created_at": "2018-06-04T11:51:54.970Z",
+            "updated_at": "2018-06-04T11:51:54.970Z"
           }
-        ]
+        ],
+        "count": 2
       },
-      "code": 401,
+      "code": 200,
       "show_in_doc": 1,
       "recorded": true
     },
@@ -25,10 +120,28 @@
       "versions": [
         "1.0"
       ],
-      "query": null,
+      "query": "status=public",
       "request_data": null,
       "response_data": {
-        "success": true
+        "schools": [
+          {
+            "id": 2,
+            "name": "Lycée René Cassin",
+            "address": "49 Boulevard des 9 Clés",
+            "zip_code": "71018",
+            "city": "Mâcon",
+            "opening_hours": "8h-19h",
+            "phone_number": "0385395350",
+            "email": "jean.kevin@cassin.fr",
+            "latitude": 46.314784,
+            "longitude": 4.82112,
+            "student_number": 1000,
+            "status": "public",
+            "created_at": "2018-06-04T11:51:54.970Z",
+            "updated_at": "2018-06-04T11:51:54.970Z"
+          }
+        ],
+        "count": 1
       },
       "code": 200,
       "show_in_doc": 0,
@@ -43,11 +156,104 @@
       "query": null,
       "request_data": null,
       "response_data": {
-        "errors": [
+        "schools": [
           {
-            "detail": "Access denied"
+            "id": 2,
+            "name": "Lycée René Cassin",
+            "address": "49 Boulevard des 9 Clés",
+            "zip_code": "71018",
+            "city": "Mâcon",
+            "opening_hours": "8h-19h",
+            "phone_number": "0385395350",
+            "email": "jean.kevin@cassin.fr",
+            "latitude": 46.314784,
+            "longitude": 4.82112,
+            "student_number": 1000,
+            "status": "public",
+            "created_at": "2018-06-04T11:51:54.970Z",
+            "updated_at": "2018-06-04T11:51:54.970Z"
+          },
+          {
+            "id": 1,
+            "name": "Ynov Ingésup Informatique",
+            "address": "27 rue raoul servant",
+            "zip_code": "69007",
+            "city": "Lyon",
+            "opening_hours": "8h-19h",
+            "phone_number": "0800600633",
+            "email": "jean.kevin@ynov.com",
+            "latitude": 45.745686,
+            "longitude": 4.837593,
+            "student_number": 300,
+            "status": "private",
+            "created_at": "2018-06-04T11:51:54.970Z",
+            "updated_at": "2018-06-04T11:51:54.970Z"
           }
-        ]
+        ],
+        "count": 2
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/api/v1/schools",
+      "versions": [
+        "1.0"
+      ],
+      "query": "status=private",
+      "request_data": null,
+      "response_data": {
+        "schools": [
+          {
+            "id": 1,
+            "name": "Ynov Ingésup Informatique",
+            "address": "27 rue raoul servant",
+            "zip_code": "69007",
+            "city": "Lyon",
+            "opening_hours": "8h-19h",
+            "phone_number": "0800600633",
+            "email": "jean.kevin@ynov.com",
+            "latitude": 45.745686,
+            "longitude": 4.837593,
+            "student_number": 300,
+            "status": "private",
+            "created_at": "2018-06-04T11:51:54.970Z",
+            "updated_at": "2018-06-04T11:51:54.970Z"
+          }
+        ],
+        "count": 1
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/api/v1/schools",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "errors": "Access denied"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/api/v1/schools",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "errors": "Access denied"
       },
       "code": 401,
       "show_in_doc": 0,
@@ -65,7 +271,7 @@
       "request_data": "email=user_1%40domain.com&password=password123",
       "response_data": {
         "success": true,
-        "auth_token": "d0b29a21c90e4b167fb54c39a59091f9"
+        "auth_token": "21c03248c7e65fd576d5db70a7151b50"
       },
       "code": 200,
       "show_in_doc": 1,
@@ -78,7 +284,7 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "email=user_1%40domain.com&password=BAD_PASSWORD",
+      "request_data": "email=INVALID%40domain.com&password=password123",
       "response_data": {
         "success": false,
         "error": [
@@ -96,7 +302,7 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "email=INVALID%40domain.com&password=password123",
+      "request_data": "email=user_1%40domain.com&password=BAD_PASSWORD",
       "response_data": {
         "success": false,
         "error": [

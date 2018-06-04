@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  id: 1
+  name: "Ynov Ingésup Informatique"
+  address: "27 rue raoul servant"
+  zip_code: "69007"
+  city: "Lyon"
+  opening_hours: "8h-19h"
+  phone_number: "0800600633"
+  email: "jean.kevin@ynov.com"
+  latitude: 45.745686
+  longitude: 4.837593
+  student_number: 300
+  status: "private"
+
+two:
+  id: 2
+  name: "Lycée René Cassin"
+  address: "49 Boulevard des 9 Clés"
+  zip_code: "71018"
+  city: "Mâcon"
+  opening_hours: "8h-19h"
+  phone_number: "0385395350"
+  email: "jean.kevin@cassin.fr"
+  latitude: 46.314784
+  longitude: 4.821120
+  student_number: 1000
+  status: "public"

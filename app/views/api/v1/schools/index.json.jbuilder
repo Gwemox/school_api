@@ -1,1 +1,2 @@
-json.success @message['success']
+json.schools @schools
+json.count @schools.length
