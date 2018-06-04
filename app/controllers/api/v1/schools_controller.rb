@@ -24,14 +24,15 @@ class Api::V1::SchoolsController < Api::ApiController
 
   # DOC GENERATED AUTOMATICALLY: REMOVE THIS LINE TO PREVENT REGENERATING NEXT TIME
   api :POST, '/v1/schools', 'Create a school'
+  error code: 400
   def create
     @school = School.create(school_params)
 
     if @school.errors.any?
       render json: {errors: @school.errors.messages, success: false}, status: 400
+    else
+      render template: '/api/v1/schools/show', status: 201
     end
-
-    render template: '/api/v1/schools/show', status: 201
   end
 
   # DOC GENERATED AUTOMATICALLY: REMOVE THIS LINE TO PREVENT REGENERATING NEXT TIME

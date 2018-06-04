@@ -55,13 +55,19 @@ feature "Schools" do
   end
 
   describe "#create" do
-    it "return 201 when school is successfulllt created" do
+    it "return 201 when school is successfull created" do
       assert_difference "School.all.count" do
         post api_v1_schools_path, {school: {name: "Collège George Sand"}}, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
 
         assert_equal 201, last_response.status
         assert_equal 'Collège George Sand', json_response['school']['name']
       end
+    end
+
+    it "return 400 when school is unsuccessfulll created" do
+      post api_v1_schools_path, {school: {opening_hours: "5h-14h"}}, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
+
+      assert_equal 400, last_response.status
     end
   end
 
