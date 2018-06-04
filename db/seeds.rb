@@ -37,3 +37,16 @@ School.create(
   student_number: 1000,
   status: "public"
 )
+School.create(
+  name: "Pierre Termier",
+  address: "23, rue des Alouettes",
+  zip_code: "69003",
+  city: "Lyon",
+  opening_hours: "De 8h à 18h",
+  phone_number: "0400000000",
+  email: "contact@pierretermier.com",
+  latitude: 45.74157630000001,
+  longitude: 4.8714741,
+  student_number: 30,
+  status: "public"
+)
