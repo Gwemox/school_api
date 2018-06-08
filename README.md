@@ -23,3 +23,6 @@ Things you may want to cover:
 
 * ...
 # school_api
+
+Link Heroku : https://school-api-ynov.herokuapp.com/
+Documentation : https://school-api-ynov.herokuapp.com/apipie
