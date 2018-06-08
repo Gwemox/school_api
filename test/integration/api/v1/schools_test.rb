@@ -86,4 +86,13 @@ feature "Schools" do
     end
   end
 
+  describe "#show" do
+    it "return 200 when get school with id 1" do
+      get api_v1_school_path(1), nil, {'HTTP_AUTHORIZATION' => 'TEST_VALID_TOKEN'}
+
+      assert_equal 200, last_response.status
+      assert_equal "Ynov Ingésup Informatique", json_response['school']['name']
+    end
+  end
+
 end
